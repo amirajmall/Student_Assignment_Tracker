@@ -1,7 +1,4 @@
-/* app.js - Shared helpers for Student Assignment Tracker (IMS566)
-   - Authentication
-   - User greeting + logout
-   - Assignments storage helpers
+// for login, register and assignment
 */
 (function () {
   "use strict";
@@ -9,7 +6,7 @@
   const KEYS = {
     USERS: "sat_users_v1",
     CURRENT_USER: "sat_current_user_v1",
-    ASSIGNMENTS: "assignments" // keep the same key your CRUD page already uses
+    ASSIGNMENTS: "assignments" 
   };
 
   function safeJsonParse(str, fallback) {
@@ -34,7 +31,7 @@
       .replaceAll("'", "&#039;");
   }
 
-  // ---------- Users ----------
+ // user
   function getUsers() {
     return safeJsonParse(localStorage.getItem(KEYS.USERS), []);
   }
@@ -59,7 +56,7 @@
     const u = String(username || "").trim();
     const p = String(password || "");
 
-    // Check registered users
+    // check registered users
     const users = getUsers();
     const found = users.find(x => x.username === u && x.password === p);
     if (found) return { ok: true, username: found.username, name: found.name || found.username };
@@ -76,7 +73,7 @@
 
   function logout() {
     clearCurrentUser();
-    // optional: keep assignments + users in browser storage
+    // keep assignments, users in browser storage
     window.location.href = "index.html";
   }
 
@@ -99,7 +96,7 @@
     });
   }
 
-  // ---------- Assignments ----------
+  // assignment
   function getAssignments() {
     return safeJsonParse(localStorage.getItem(KEYS.ASSIGNMENTS), []);
   }
@@ -120,18 +117,17 @@
   }
 
   function wireCommonUi() {
-    // Greeting + Year
+    // greeting and year
     setGreeting();
     setYear();
 
-    // Logout button (optional)
+    // logout button 
     const btn = document.getElementById("logoutBtn");
     if (btn) btn.addEventListener("click", logout);
   }
 
   document.addEventListener("DOMContentLoaded", wireCommonUi);
 
-  // Expose
   window.SAT = {
     KEYS,
     uid,
