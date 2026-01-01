@@ -1,12 +1,11 @@
 // for login, register and assignment
-*/
 (function () {
   "use strict";
 
   const KEYS = {
     USERS: "sat_users_v1",
     CURRENT_USER: "sat_current_user_v1",
-    ASSIGNMENTS: "assignments" 
+    ASSIGNMENTS: "assignments"
   };
 
   function safeJsonParse(str, fallback) {
@@ -31,7 +30,7 @@
       .replaceAll("'", "&#039;");
   }
 
- // user
+  // user
   function getUsers() {
     return safeJsonParse(localStorage.getItem(KEYS.USERS), []);
   }
@@ -54,12 +53,12 @@
 
   function validateLogin(username, password) {
     const u = String(username || "").trim();
-    const p = String(password || "");
+    const p = String(password || "").trim();
 
     // check registered users
     const users = getUsers();
     const found = users.find(x => x.username === u && x.password === p);
-    if (found) return { ok: true, username: found.username, name: found.name || found.username };
+    if (found) return { ok: true, username: found.username };
 
     return { ok: false };
   }
@@ -68,12 +67,11 @@
     const result = validateLogin(username, password);
     if (!result.ok) return { ok: false };
     setCurrentUser(result.username);
-    return { ok: true, username: result.username, name: result.name };
+    return { ok: true, username: result.username };
   }
 
   function logout() {
     clearCurrentUser();
-    // keep assignments, users in browser storage
     window.location.href = "index.html";
   }
 
@@ -121,7 +119,7 @@
     setGreeting();
     setYear();
 
-    // logout button 
+    // logout button
     const btn = document.getElementById("logoutBtn");
     if (btn) btn.addEventListener("click", logout);
   }
@@ -129,7 +127,6 @@
   document.addEventListener("DOMContentLoaded", wireCommonUi);
 
   window.SAT = {
-    KEYS,
     uid,
     escapeHtml,
     // users
