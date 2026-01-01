@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Assignment Tracker | Login</title>
 
-  // Tailwind CSS
+  <!-- Tailwind CSS -->
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 
 <body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 px-4">
 
-  // login
+  <!-- login box -->
   <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
    
     <div class="flex justify-center mb-4">
@@ -29,18 +29,16 @@
       </div>
     </div>
 
-    // title
+    <!-- title -->
     <h2 class="text-2xl font-bold text-center text-gray-900">Student Assignment Tracker</h2>
     <p class="text-sm text-center text-gray-500 mb-4">Manage and track your assignments easily</p>
 
-
-
-    // error 
+    <!-- error message -->
     <div id="error" class="hidden mb-4 p-3 text-sm text-red-700 bg-red-100 rounded">
       Invalid username or password
     </div>
 
-   // login form
+    <!-- login form -->
     <form id="loginForm" class="space-y-4">
       <div>
         <label class="block text-sm text-gray-600 mb-1">Username</label>
@@ -62,26 +60,26 @@
       </button>
     </form>
 
-    // register
+    <!-- register link -->
     <p class="mt-6 text-center text-sm">
       Not registered?
       <a href="register.html" class="font-bold text-gray-900 hover:underline">Create an account</a>
     </p>
   </div>
 
-  // footer
+  <!-- footer -->
   <footer class="mt-6 text-center text-xs text-gray-300">
     Student Assignment Tracker <span aria-hidden="true">&copy;</span> 2025 by Syamimi &amp; Amir | IMS566 Project
   </footer>
 
   <script src="app.js"></script>
   <script>
-    // got to menu if already login
+    // go to menu if already login
     if (window.SAT && SAT.getCurrentUser()) {
       window.location.href = "menu.html";
     }
 
-    // prefill username from register 
+    // prefill username from register
     (function () {
       const params = new URLSearchParams(window.location.search);
       const u = params.get("u");
