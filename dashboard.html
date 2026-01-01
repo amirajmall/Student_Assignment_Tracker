@@ -5,12 +5,14 @@
   <title>Dashboard | Student Assignment Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  // Tailwind CSS
+  <!-- Tailwind CSS -->
   <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  // chart
+
+  <!-- chart -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <link rel="stylesheet" href="sidebar.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,7 +21,7 @@
 
 <body class="bg-gray-800 font-sans">
 
- // top nav
+  <!-- top nav -->
   <header class="fixed top-0 w-full bg-gray-800 z-20">
     <div class="flex items-center justify-between px-4 py-3 text-white">
       <h1 class="font-bold text-lg">Student Assignment Tracker</h1>
@@ -54,7 +56,7 @@
       </a>
     </nav>
 
-    // content
+    <!-- content -->
     <main class="flex-1 bg-gray-100 p-6">
 
       <div class="bg-gradient-to-r from-blue-900 to-gray-800 text-white p-4 rounded-lg mb-6">
@@ -94,7 +96,7 @@
         </div>
       </div>
 
-     // chart
+      <!-- chart -->
       <div class="bg-white p-4 rounded shadow">
         <h3 class="font-bold mb-1"><i class="fas fa-chart-pie mr-2"></i>Status Summary</h3>
         <p class="text-sm text-gray-500 mb-4">Not started vs In progress vs Done</p>
@@ -131,9 +133,9 @@
           label: "Assignments",
           data: [counts.notStarted, counts.inProgress, counts.done],
           backgroundColor: [
-            "rgba(107,114,128,0.6)", 
-            "rgba(245,158,11,0.6)",   
-            "rgba(34,197,94,0.6)"     
+            "rgba(107,114,128,0.6)",
+            "rgba(245,158,11,0.6)",
+            "rgba(34,197,94,0.6)"
           ]
         }]
       },
