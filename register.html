@@ -6,6 +6,7 @@
   <title>Student Assignment Tracker | Register</title>
 
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -18,12 +19,14 @@
 
   <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl p-8">
     <h1 class="text-xl font-bold text-gray-800 text-center mb-2">Register</h1>
-    <p class="text-sm text-gray-500 text-center mb-6"><i class="fas fa-user-plus mr-2"></i>Create your account</p>
+    <p class="text-sm text-gray-500 text-center mb-6">
+      <i class="fas fa-user-plus mr-2"></i>Create your account
+    </p>
 
     <div id="msg" class="hidden mb-4 p-3 text-sm rounded"></div>
 
     <form id="registerForm" class="space-y-4">
-<div>
+      <div>
         <label class="block text-sm text-gray-600 mb-1">Email</label>
         <input id="email" type="email" placeholder="Your Email"
           class="w-full px-4 py-2 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-900"
@@ -45,6 +48,7 @@
             required />
         </div>
       </div>
+
       <button type="submit"
         class="w-full py-3 bg-gray-900 text-white rounded hover:bg-gray-800 transition">
         Register
@@ -62,6 +66,11 @@
 
   <script src="app.js"></script>
   <script>
+    // go to menu if already login
+    if (window.SAT && SAT.getCurrentUser()) {
+      window.location.href = "menu.html";
+    }
+
     const form = document.getElementById("registerForm");
     const msg = document.getElementById("msg");
 
@@ -75,13 +84,16 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
       const email = document.getElementById("email").value.trim();
       const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value;
+
       if (password.length < 4) {
         showMsg("Password must be at least 4 characters.", "err");
         return;
       }
+
       const users = SAT.getUsers();
       const exists = users.some(u => u.username.toLowerCase() === username.toLowerCase());
       if (exists) {
@@ -100,7 +112,6 @@
       SAT.saveUsers(users);
       showMsg("Registration successful! Redirecting to login...", "ok");
 
-      // back to login and refill username
       setTimeout(() => {
         window.location.href = "index.html?u=" + encodeURIComponent(username);
       }, 800);
