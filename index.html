@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Assignment Tracker | Login</title>
 
-  <!-- Tailwind CSS -->
+  // Tailwind CSS
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -18,9 +17,9 @@
 
 <body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 px-4">
 
-  <!-- Login Card -->
+  // login
   <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-    <!-- Icon -->
+   
     <div class="flex justify-center mb-4">
       <div class="h-12 w-12 flex items-center justify-center rounded-lg bg-gray-900 text-white">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 16 16">
@@ -30,18 +29,18 @@
       </div>
     </div>
 
-    <!-- Title -->
+    // title
     <h2 class="text-2xl font-bold text-center text-gray-900">Student Assignment Tracker</h2>
     <p class="text-sm text-center text-gray-500 mb-4">Manage and track your assignments easily</p>
 
 
 
-    <!-- Error Message -->
+    // error 
     <div id="error" class="hidden mb-4 p-3 text-sm text-red-700 bg-red-100 rounded">
       Invalid username or password
     </div>
 
-    <!-- Login Form -->
+   // login form
     <form id="loginForm" class="space-y-4">
       <div>
         <label class="block text-sm text-gray-600 mb-1">Username</label>
@@ -63,26 +62,26 @@
       </button>
     </form>
 
-    <!-- Register Link -->
+    // register
     <p class="mt-6 text-center text-sm">
       Not registered?
       <a href="register.html" class="font-bold text-gray-900 hover:underline">Create an account</a>
     </p>
   </div>
 
-  <!-- Footer -->
+  // footer
   <footer class="mt-6 text-center text-xs text-gray-300">
     Student Assignment Tracker <span aria-hidden="true">&copy;</span> 2025 by Syamimi &amp; Amir | IMS566 Project
   </footer>
 
   <script src="app.js"></script>
   <script>
-    // If already logged in, go to Menu
+    // got to menu if already login
     if (window.SAT && SAT.getCurrentUser()) {
       window.location.href = "menu.html";
     }
 
-    // Prefill username from register redirect (?u=...)
+    // prefill username from register 
     (function () {
       const params = new URLSearchParams(window.location.search);
       const u = params.get("u");
@@ -92,7 +91,7 @@
     const form = document.getElementById("loginForm");
     const error = document.getElementById("error");
 
-    // Hide error when typing
+    // hide error when typing
     document.getElementById("username").addEventListener("input", () => error.classList.add("hidden"));
     document.getElementById("password").addEventListener("input", () => error.classList.add("hidden"));
 
