@@ -5,23 +5,21 @@
   <title>Analytics | Student Assignment Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Tailwind -->
+  // Tailwind CSS
   <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <!-- Chart.js -->
+  // chart
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Sidebar CSS -->
+
   <link rel="stylesheet" href="sidebar.css">
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style> body { font-family: 'Poppins', sans-serif; } </style>
 </head>
 
 <body class="bg-gray-800 font-sans">
 
-  <!-- TOP NAV -->
+  // top nav
   <header class="fixed top-0 w-full bg-gray-800 z-20">
     <div class="flex items-center justify-between px-4 py-3 text-white">
       <h1 class="font-bold text-lg">Student Assignment Tracker</h1>
@@ -32,10 +30,8 @@
     </div>
   </header>
 
-  <!-- LAYOUT -->
   <div class="flex pt-14">
 
-    <!-- SIDEBAR -->
     <nav class="sidebar">
       <a href="menu.html">
         <i class="fas fa-th-large"></i>
@@ -58,16 +54,14 @@
       </a>
     </nav>
 
-    <!-- MAIN CONTENT -->
+    // content
     <main class="flex-1 bg-gray-100 p-6">
-
-      <!-- TITLE -->
+      // title
       <div class="bg-gradient-to-r from-blue-900 to-gray-800 text-white p-4 rounded-lg mb-6">
         <h2 class="text-xl font-bold"><i class="fas fa-chart-line mr-2"></i>Analytics</h2>
         <p class="text-sm text-gray-200">Second data view (summary + chart + overdue list)</p>
       </div>
 
-      <!-- STATS -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div class="bg-white p-4 rounded shadow flex items-center justify-between">
           <div>
@@ -111,7 +105,7 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <!-- CHART -->
+        // chart
         <section class="lg:col-span-5">
           <div class="bg-white p-4 rounded shadow">
             <h3 class="font-bold mb-1"><i class="fas fa-chart-pie mr-2"></i>Status Distribution</h3>
@@ -120,7 +114,7 @@
           </div>
         </section>
 
-        <!-- OVERDUE TABLE -->
+        // overdue assignment table
         <section class="lg:col-span-7">
           <div class="bg-white p-4 rounded shadow">
             <h3 class="font-bold mb-3"><i class="fas fa-clock mr-2"></i>Overdue Assignments</h3>
@@ -157,8 +151,6 @@
     const counts = SAT.getStatusCounts(items);
     const total = items.length;
     const done = counts.done;
-
-    // date helpers (midnight)
     const today = new Date();
     today.setHours(0,0,0,0);
 
