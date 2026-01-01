@@ -1,14 +1,13 @@
-/* sidebar.css - Shared sidebar styles (simple + student-friendly) */
+
 
 .sidebar {
-  background-color: #1f2937; /* gray-800 */
-  width: 14rem;             /* 224px (Tailwind w-56) */
+  background-color: #1f2937; 
+  width: 14rem;             
   min-height: 100vh;
   padding: 16px;
   box-sizing: border-box;
 }
 
-/* Links */
 .sidebar a {
   position: relative;
   display: flex;
@@ -20,24 +19,21 @@
   border-radius: 10px;
 }
 
-/* Icon spacing */
 .sidebar i {
   width: 18px;
   text-align: center;
 }
 
-/* Hover */
 .sidebar a:hover {
-  background-color: #374151; /* gray-700 */
+  background-color: #374151; 
 }
 
-/* Active */
 .sidebar a.active {
-  background-color: #111827; /* gray-900 */
+  background-color: #111827; 
   font-weight: 600;
 }
 
-/* Blue left indicator (inside link) */
+
 .sidebar a.active::before {
   content: "";
   position: absolute;
@@ -45,6 +41,6 @@
   top: 10px;
   bottom: 10px;
   width: 4px;
-  background-color: #3b82f6; /* blue-500 */
+  background-color: #3b82f6; 
   border-radius: 4px;
 }
