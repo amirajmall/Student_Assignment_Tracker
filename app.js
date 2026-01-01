@@ -1,4 +1,4 @@
-// for login, register and assignment
+// for login, register and assignment 
 (function () {
   "use strict";
 
