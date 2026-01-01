@@ -1,2 +1,2 @@
-# Student_Assignment_Tracker
+# Student Assignment Tracker
 A Project for IMS566
